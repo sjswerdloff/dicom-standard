@@ -18,10 +18,12 @@ TABLE_ID = 'table_E.1-1'
 
 AttrTableType = List[Dict[str, Union[str, bool]]]
 
+
 def ignore_retirement_mismatch(attr_name: str) -> bool:
-    if attr_name in [ 'Time of Document or Verbal Transaction (Trial)']:
+    if attr_name in ['Time of Document or Verbal Transaction (Trial)']:
         return True
     return False
+
 
 def get_conf_profile_table(standard: BeautifulSoup) -> List[TableDictType]:
     all_tables = standard.find_all('div', class_='table')
