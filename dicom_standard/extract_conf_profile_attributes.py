@@ -29,7 +29,8 @@ def ignore_retirement_mismatch(attr_name: str) -> bool:
     Returns:
         bool: _description_
     """
-    if attr_name in ['Time of Document or Verbal Transaction (Trial)']:
+    # todo: provide description and update readme.md
+    if attr_name in ['Time of Document or Verbal Transaction (Trial)', 'Referenced Patient Alias Sequence']:
         return True
     return False
 
