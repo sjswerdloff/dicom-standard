@@ -3,6 +3,7 @@ Takes the extracted CIOD-Module table information to build a list of all
 CIOD-Module relationships defined in the DICOM Standard.
 '''
 import sys
+import re
 
 from dicom_standard import parse_lib as pl
 from dicom_standard.process_modules import MF_FUNC_GROUP_MODULE_ID, CF_FUNC_GROUP_MODULE_ID
@@ -74,6 +75,10 @@ def extract_conditional_statement(usage_field):
         conditional_statement = usage_field[1:].strip()
     else:
         conditional_statement = None
+    # Normalize capitalization inconsistencies (e.g. 'Frame' -> 'frame')
+    if conditional_statement:
+        conditional_statement = re.sub(r"\bFrame\b", 'frame', conditional_statement)
+        conditional_statement = re.sub(r"\bFrames\b", 'frames', conditional_statement)
     return conditional_statement
 
 

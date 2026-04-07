@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: new_standard
-          path: dicom_standard/dist
+          path: dicom_standard/dist/*
   test-and-commit:
     needs: make
     name: Run tox and commit to master
