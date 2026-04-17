@@ -21,7 +21,9 @@ from dicom_standard.table_utils import (
     tables_to_json,
 )
 
-TABLE_SUFFIX = re.compile("(.*Module Attributes$)|(.*Module Table$)|(.*Macro Attributes$)|(.*Macro Attributes Description$)")
+# Standard workaround: Table C.39.1-1 is titled "Waveform Presentation State Relationship Module"
+# (ending with just "Module" instead of "Module Attributes"), so we also match "Relationship Module"
+TABLE_SUFFIX = re.compile("(.*Module Attributes$)|(.*Module Table$)|(.*Macro Attributes$)|(.*Macro Attributes Description$)|(.*Relationship Module$)")
 MACRO_TABLE_SUFFIX = re.compile("(.*Macro Attributes$)|(.*Macro Attributes Description$)")
 COLUMN_TITLES_WITH_TYPE = ['name', 'tag', 'type', 'description']
 COLUMN_TITLES_NO_TYPE = ['name', 'tag', 'description']

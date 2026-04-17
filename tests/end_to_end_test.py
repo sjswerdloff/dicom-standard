@@ -357,14 +357,14 @@ def test_number_of_module_appearances(ciod_module_relationship, modules):
             "ciodId": "planar-mpr-volumetric-presentation-state",
             "moduleId": "volume-cropping",
             "usage": "C",
-            "conditionalStatement": "Required if Global Crop (0070,120B) or any value of Crop (0070,1204) is YES",
+            "conditionalStatement": "Required if Global Crop (0070,120B) or any Value of Crop (0070,1204) is YES",
             "informationEntity": "Presentation State"
         },
         {
             "ciodId": "volume-rendering-volumetric-presentation-state",
             "moduleId": "volume-cropping",
             "usage": "C",
-            "conditionalStatement": "Required if Global Crop (0070,120B) or any value of Crop (0070,1204) is YES",
+            "conditionalStatement": "Required if Global Crop (0070,120B) or any Value of Crop (0070,1204) is YES",
             "informationEntity": "Presentation State"
         },
     ]

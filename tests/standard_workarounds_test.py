@@ -160,3 +160,14 @@ def test_miscapitalized_word_in_table_b_5_1(part04):
     table = get_table_rows_from_ids(part04, ['table_B.5-1'], ['name', 'id', 'ciod'])
     row = next(row for row in table if 'Pseudo-color Softcopy Presentation State'.lower() in row['ciod'].lower())
     assert row['ciod'] != 'Pseudo-Color Softcopy Presentation State IOD', 'Row now contains correct capitalization'
+
+
+def test_nonstandard_module_suffix_in_table_c_39_1_1(part03):
+    # Standard workaround: Table C.39.1-1 is titled "Waveform Presentation State Relationship Module"
+    # instead of "Waveform Presentation State Relationship Module Attributes"
+    tdiv = find_tdiv_from_id(part03, 'table_C.39.1-1')
+    if tdiv is None:
+        pytest.skip('Table C.39.1-1 not present in current standard HTML')
+    table_title = tdiv.find_next('p').text.strip()
+    assert table_title.endswith('Relationship Module'), 'Table title no longer ends with bare "Module" suffix'
+    assert not table_title.endswith('Module Attributes'), 'Table title now uses standard "Module Attributes" suffix'

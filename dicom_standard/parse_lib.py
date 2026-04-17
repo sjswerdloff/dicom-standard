@@ -83,7 +83,7 @@ def clean_table_name(name: str) -> str:
         Table C.7-5b. Clinical Trial Series Module Attributes --> Clinical Trial Series
     '''
     _, _, title = re.split('\u00a0', name)
-    possible_table_suffixes = r'(IOD Modules)|(Module Attributes)|((Functional Group)? Macro Attributes)|(Module Table)|(Functional Group Macros)'
+    possible_table_suffixes = r'(IOD Modules)|(Module Attributes)|((Functional Group)? Macro Attributes)|(Module Table)|(Functional Group Macros)|(Module$)'
     clean_title = re.split(possible_table_suffixes, title)[0]
     return clean_title.strip()
 
